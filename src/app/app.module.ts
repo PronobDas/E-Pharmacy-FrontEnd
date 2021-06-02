@@ -12,6 +12,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import { SigninComponent } from './signin/signin.component';
 import { ProductFormComponent } from './product-form/product-form.component';
+import { FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { ProductFormComponent } from './product-form/product-form.component';
       { path: 'admin/products', component: AdminProductsComponent},
       { path: 'admin/products/new', component: ProductFormComponent}
     ]),
+    FormsModule,
     HttpClientModule
   ],
   providers: [],
