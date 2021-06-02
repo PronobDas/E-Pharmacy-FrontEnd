@@ -11,6 +11,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import { SigninComponent } from './signin/signin.component';
+import { ProductFormComponent } from './product-form/product-form.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { SigninComponent } from './signin/signin.component';
     AdminProductsComponent,
     WelcomeComponent,
     NavbarComponent,
-    SigninComponent
+    SigninComponent,
+    ProductFormComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +33,8 @@ import { SigninComponent } from './signin/signin.component';
       { path: 'welcome', component: WelcomeComponent },
       { path: 'signup', component: SignupComponent},
       { path: 'signin', component: SigninComponent},
-      { path: 'admin-products', component: AdminProductsComponent}
+      { path: 'admin/products', component: AdminProductsComponent},
+      { path: 'admin/products/new', component: ProductFormComponent}
     ]),
     HttpClientModule
   ],
