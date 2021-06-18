@@ -11,6 +11,9 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import { SigninComponent } from './signin/signin.component';
+import { ProductFormComponent } from './product-form/product-form.component';
+import { FormsModule} from "@angular/forms";
+import {UserService} from "./services/user.service";
 
 @NgModule({
   declarations: [
@@ -20,7 +23,8 @@ import { SigninComponent } from './signin/signin.component';
     AdminProductsComponent,
     WelcomeComponent,
     NavbarComponent,
-    SigninComponent
+    SigninComponent,
+    ProductFormComponent
   ],
   imports: [
     BrowserModule,
@@ -31,11 +35,13 @@ import { SigninComponent } from './signin/signin.component';
       { path: 'welcome', component: WelcomeComponent },
       { path: 'signup', component: SignupComponent},
       { path: 'signin', component: SigninComponent},
-      { path: 'admin-products', component: AdminProductsComponent}
+      { path: 'admin/products', component: AdminProductsComponent},
+      { path: 'admin/products/new', component: ProductFormComponent}
     ]),
+    FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
