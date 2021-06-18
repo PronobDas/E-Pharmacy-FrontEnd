@@ -6,54 +6,54 @@
 <!------ Include the above in your HEAD tag ---------->
 
 <div>
-  <form class="form-horizontal" role="form">
+  <form (ngSubmit)="onSubmit()" class="form-horizontal" role="form">
     <div class="form-group">
       <label for="firstName" class="col-sm-3 control-label">First Name</label>
       <div class="col-sm-6">
-        <input type="text" id="firstName" placeholder="First Name" class="form-control" autofocus>
+        <input type="text" id="firstName" placeholder="First Name" class="form-control" required [(ngModel)]="user.Firstname" name="firstname" autofocus>
       </div>
     </div>
     <div class="form-group">
       <label for="lastName" class="col-sm-3 control-label">Last Name</label>
       <div class="col-sm-6">
-        <input type="text" id="lastName" placeholder="Last Name" class="form-control" autofocus>
+        <input type="text" id="lastName" placeholder="Last Name" class="form-control" required [(ngModel)]="user.Lastname" name="lastname" autofocus>
       </div>
     </div>
     <div class="form-group">
       <label for="email" class="col-sm-3 control-label">Email* </label>
       <div class="col-sm-6">
-        <input type="email" id="email" placeholder="Email" class="form-control" name= "email">
+        <input type="email" id="email" placeholder="Email" class="form-control" required [(ngModel)]="user.Email" name= "email" autofocus>
       </div>
     </div>
     <div class="form-group">
       <label for="password" class="col-sm-3 control-label">Password*</label>
       <div class="col-sm-6">
-        <input type="password" id="password" placeholder="Password" class="form-control">
+        <input type="password" id="password" placeholder="Password" class="form-control" required [(ngModel)]="user.Password" name="password" autofocus>
       </div>
     </div>
     <div class="form-group">
       <label for="password" class="col-sm-3 control-label">Confirm Password*</label>
       <div class="col-sm-6">
-        <input type="password" id="password" placeholder="Password" class="form-control">
+        <input type="password" id="password" placeholder="Password" class="form-control" required [(ngModel)]="user.Password" name="password" autofocus>
       </div>
     </div>
     <div class="form-group">
       <label for="birthDate" class="col-sm-3 control-label">Date of Birth*</label>
       <div class="col-sm-6">
-        <input type="date" id="birthDate" class="form-control">
+        <input type="date" id="birthDate" class="form-control" required [(ngModel)]="user.DateOfBirth" name="dob" autofocus>
       </div>
     </div>
     <div class="form-group">
       <label for="phoneNumber" class="col-sm-3 control-label">Phone number </label>
       <div class="col-sm-6">
-        <input type="phoneNumber" id="phoneNumber" placeholder="Phone number" class="form-control">
+        <input type="phoneNumber" id="phoneNumber" placeholder="Phone number" class="form-control" required [(ngModel)]="user.Phone" name="phone" autofocus>
         <span class="help-block">Your phone number won't be disclosed anywhere </span>
       </div>
     </div>
     <div class="form-group">
       <label for="location" class="col-sm-3 control-label">Location* </label>
       <div class="col-sm-6">
-        <input type="text" id="location" placeholder="Location" class="form-control">
+        <input type="text" id="location" placeholder="Location" class="form-control" required [(ngModel)]="user.Location" name="location" autofocus>
       </div>
     </div>
     <div class="form-group">
@@ -62,12 +62,12 @@
         <div class="row">
           <div class="col-sm-4">
             <label class="radio-inline">
-              <input type="radio" id="femaleRadio" value="Female">Female
+              <input type="radio" id="femaleRadio" value="Female" required [(ngModel)]="user.Gender" name="gender" autofocus>Female
             </label>
           </div>
           <div class="col-sm-4">
             <label class="radio-inline">
-              <input type="radio" id="maleRadio" value="Male">Male
+              <input type="radio" id="maleRadio" value="Male" required [(ngModel)]="user.Gender" name="gender" autofocus>Male
             </label>
           </div>
         </div>
@@ -78,6 +78,9 @@
         <span class="help-block">*Required fields</span>
       </div>
     </div>
-    <button type="submit" class="btn btn-primary btn-block btn">Signup</button>
+    <button type="submit" (click)="save()" class="btn btn-primary btn-block btn">Signup</button>
   </form> <!-- /form -->
-</div> <!-- ./container -->
+</div>
+<div [hidden]="!submitted">
+  <h4>You submitted successfully!</h4>
+</div><!-- ./container -->

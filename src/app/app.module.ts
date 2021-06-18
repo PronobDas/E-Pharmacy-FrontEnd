@@ -13,6 +13,7 @@ import { NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import { SigninComponent } from './signin/signin.component';
 import { ProductFormComponent } from './product-form/product-form.component';
 import { FormsModule} from "@angular/forms";
+import {UserService} from "./services/user.service";
 
 @NgModule({
   declarations: [
@@ -40,7 +41,7 @@ import { FormsModule} from "@angular/forms";
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
