@@ -25,7 +25,7 @@ export class SignupComponent implements OnInit {
       .create(this.user).subscribe(data => {
         console.log(data);
         this.user = data;
-        this.userID = this.user.Id;
+        this.userID = this.user.id;
         console.log(this.userID);
         this.user = new User();
         console.log(this.user);
