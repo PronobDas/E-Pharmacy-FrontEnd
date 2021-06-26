@@ -12,14 +12,14 @@
       <form>
         <div class="form-group">
           <label>User Name</label>
-          <input type="text" class="form-control" placeholder="User Name">
+          <input type="text" class="form-control" placeholder="User Name" [(ngModel)]="username" name="username" autofocus>
 
         </div>
         <div class="form-group">
           <label>Password</label>
-          <input type="password" class="form-control" placeholder="Password">
+          <input type="password" class="form-control" placeholder="Password" [(ngModel)]="password" name="password" autofocus>
         </div>
-        <a routerLink="/home" class="btn btn-black" ><b>Login</b></a>
+        <button (click)=checkLogin() class="btn btn-black btn-success"> <b>Login</b></button>
         <div class="form-group">
 
           <a href="#" class="btnForgetPwd" value="Login">Forget Password?</a>

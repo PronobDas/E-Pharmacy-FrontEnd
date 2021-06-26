@@ -14,6 +14,9 @@ import { SigninComponent } from './signin/signin.component';
 import { ProductFormComponent } from './product-form/product-form.component';
 import { FormsModule} from "@angular/forms";
 import {UserService} from "./services/user.service";
+import { LogoutComponent } from './logout/logout.component';
+import {AuthService} from "./services/auth.service";
+import {AuthGaurdService} from "./services/authguard.service";
 
 @NgModule({
   declarations: [
@@ -24,24 +27,30 @@ import {UserService} from "./services/user.service";
     WelcomeComponent,
     NavbarComponent,
     SigninComponent,
-    ProductFormComponent
+    ProductFormComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
     NgbModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent },
-      { path: 'home', component: HomeComponent },
+      { path: 'home', component: HomeComponent, canActivate:[AuthGaurdService] },
       { path: 'welcome', component: WelcomeComponent },
       { path: 'signup', component: SignupComponent},
       { path: 'signin', component: SigninComponent},
-      { path: 'admin/products', component: AdminProductsComponent},
-      { path: 'admin/products/new', component: ProductFormComponent}
+      { path: 'logout', component: LogoutComponent},
+      { path: 'admin/products', component: AdminProductsComponent, canActivate:[AuthGaurdService]},
+      { path: 'admin/products/new', component: ProductFormComponent ,canActivate:[AuthGaurdService]}
     ]),
     FormsModule,
     HttpClientModule
   ],
-  providers: [UserService],
+  providers: [
+    AuthService,
+    UserService,
+    AuthGaurdService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
