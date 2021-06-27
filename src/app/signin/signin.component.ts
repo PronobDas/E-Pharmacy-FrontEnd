@@ -22,7 +22,7 @@ export class SigninComponent implements OnInit {
   checkLogin() {
     if (this.loginservice.authenticate(this.username, this.password)
     ) {
-      this.router.navigate([''])
+      this.router.navigate(['/home'])
       this.invalidLogin = false
     } else
       this.invalidLogin = true

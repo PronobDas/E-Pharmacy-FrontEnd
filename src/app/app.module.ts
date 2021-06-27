@@ -34,7 +34,7 @@ import {AuthGaurdService} from "./services/authguard.service";
     BrowserModule,
     NgbModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent },
+      { path: '', component: HomeComponent, canActivate:[AuthGaurdService]},
       { path: 'home', component: HomeComponent, canActivate:[AuthGaurdService] },
       { path: 'welcome', component: WelcomeComponent },
       { path: 'signup', component: SignupComponent},
