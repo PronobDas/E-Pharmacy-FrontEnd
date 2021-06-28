@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { User} from "../models/user";
+import { User} from "../models/User";
 import {AuthService} from "../services/auth.service";
 import {Router} from "@angular/router";
 
@@ -11,7 +11,7 @@ import {Router} from "@angular/router";
 export class SigninComponent implements OnInit {
 
   user : User = new User;
-  username = ''
+  email = ''
   password = ''
   invalidLogin = false
   constructor(private router: Router,
@@ -20,11 +20,17 @@ export class SigninComponent implements OnInit {
   }
 
   checkLogin() {
-    if (this.loginservice.authenticate(this.username, this.password)
+    if (this.loginservice.authenticate(this.email, this.password)
     ) {
       this.router.navigate(['/home'])
+      console.log("successfully logged in")
       this.invalidLogin = false
     } else
+    {
       this.invalidLogin = true
+      console.log("wrong pass")
+    }
+
+
   }
 }

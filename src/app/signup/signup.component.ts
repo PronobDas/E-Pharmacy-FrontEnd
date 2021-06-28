@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {User} from "../models/user";
+import {User} from "../models/User";
 import {UserService} from "../services/user.service";
 import {Router} from "@angular/router";
 
@@ -20,22 +20,23 @@ export class SignupComponent implements OnInit {
   }
 
   save() {
-    console.log(this.user);
-    this.userService
-      .create(this.user).subscribe(data => {
-        console.log(data);
-        this.user = data;
-        this.userID = this.user.id;
-        console.log(this.userID);
-        this.user = new User();
-        console.log(this.user);
-      },
-      error => console.log(error));
+    //console.log(this.user.email);
+    //if(this.userService.duplicateEmail(this.user.email))
+    //{
+    //  console.log(this.user);
+      this.userService
+        .create(this.user).subscribe(data => {
+          console.log(data);
+          this.user = data;
+          this.userID = this.user.id;
+          this.router.navigate(['/signin'])
+        },
+        error => console.log(error));
+    //}
   }
 
   onSubmit() {
     this.submitted = true;
-    this.save();
   }
 
 }

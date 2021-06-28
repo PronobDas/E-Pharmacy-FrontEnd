@@ -12,11 +12,14 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import { SigninComponent } from './signin/signin.component';
 import { ProductFormComponent } from './product-form/product-form.component';
-import { FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {UserService} from "./services/user.service";
 import { LogoutComponent } from './logout/logout.component';
 import {AuthService} from "./services/auth.service";
 import {AuthGaurdService} from "./services/authguard.service";
+import { ProductEditComponent } from './product-edit/product-edit.component';
+import {MedicineService} from "./services/medicine.service";
+import { ProductDetailsComponent } from './product-details/product-details.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,9 @@ import {AuthGaurdService} from "./services/authguard.service";
     NavbarComponent,
     SigninComponent,
     ProductFormComponent,
-    LogoutComponent
+    LogoutComponent,
+    ProductEditComponent,
+    ProductDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -41,15 +46,19 @@ import {AuthGaurdService} from "./services/authguard.service";
       { path: 'signin', component: SigninComponent},
       { path: 'logout', component: LogoutComponent},
       { path: 'admin/products', component: AdminProductsComponent, canActivate:[AuthGaurdService]},
-      { path: 'admin/products/new', component: ProductFormComponent ,canActivate:[AuthGaurdService]}
+      { path: 'admin/products/new', component: ProductFormComponent ,canActivate:[AuthGaurdService]},
+      { path: 'admin/products/edit/:id', component: ProductEditComponent ,canActivate:[AuthGaurdService]},
+      { path: 'admin/products/details/:id', component: ProductDetailsComponent ,canActivate:[AuthGaurdService]}
     ]),
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule
   ],
   providers: [
     AuthService,
     UserService,
-    AuthGaurdService
+    AuthGaurdService,
+    MedicineService
   ],
   bootstrap: [AppComponent]
 })
