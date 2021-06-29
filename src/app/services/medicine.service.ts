@@ -27,7 +27,7 @@ export class MedicineService {
   }
 
   getMedicine(id: any): Observable<any> {
-    return this.http.get(`${baseUrl}/${id}`);
+    return this.http.get(`${baseUrl}/id/${id}`);
   }
 
   createMedicine(data: any): Observable<any> {

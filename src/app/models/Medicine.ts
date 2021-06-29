@@ -7,4 +7,5 @@ export class Medicine{
   weight: string;
   unitPrice: number;
   sensitivity: string;
+  imageURL: string;
 }

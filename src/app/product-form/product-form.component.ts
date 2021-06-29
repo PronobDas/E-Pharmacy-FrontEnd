@@ -24,6 +24,7 @@ export class ProductFormComponent implements OnInit {
     weight: [ '', Validators.required ],
     unitPrice: [ '', Validators.required ],
     sensitivity: [ '', Validators.required ],
+    imageURL: ['', Validators.required],
   });
 
   constructor(private medicineService: MedicineService,

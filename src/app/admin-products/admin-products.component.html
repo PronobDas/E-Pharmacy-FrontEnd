@@ -14,7 +14,7 @@
   <tr *ngFor="let m of medicines | async">
     <td> {{ m.name }}</td>
     <td> {{ m.companyName }}</td>
-    <td> {{ m.unitPrice }}</td>
+    <td> {{ m.unitPrice }} tk</td>
     <td>
       <button class="btn btn-success" (click)="medicineDetails(m.id)"><i class="fas fa-user-edit"></i> Details </button>
     </td>

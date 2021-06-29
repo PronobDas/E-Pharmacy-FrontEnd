@@ -1,6 +1,6 @@
 <div class="row justify-content-center">
   <div class="card shadow" style="width: 100%;">
-    <img class="card-img-top p-2 img" [src]="medicine.genericName"
+    <img class="card-img-top p-2 img" [src]="medicine.imageURL"
          alt="Medicine image">
     <div class="card-body">
       <div class="row">
@@ -25,8 +25,8 @@
                 <div class="modal-body">
                   <p><b>Are you sure you want to delete?</b></p>
                   <p>
-                    Drug name: <b>{{ medicine.name }}</b><br>
-                    Unit: <b>{{ medicine.unitPrice }}</b><br>
+                    Drug Name: <b>{{ medicine.name }}</b><br>
+                    Unit Price: <b>{{ medicine.unitPrice }}</b><br>
                     Company: <b>{{ medicine.companyName }}</b>
                   </p>
 
@@ -53,14 +53,32 @@
       </div>
       <hr>
       <div class="row">
-        <div class="col-md-3"><h6>Unit:</h6></div>
-        <div class="col-md-3">{{ medicine.unitPrice }}</div>
+        <div class="col-md-3"><h6>Generic Name:</h6></div>
+        <div class="col-md-3">{{ medicine.genericName }}</div>
       </div>
       <hr>
       <div class="row">
         <div class="col-md-3"><h6>Company:</h6></div>
         <div class="col-md-3">{{ medicine.companyName }}</div>
       </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-3"><h6>Weight:</h6></div>
+        <div class="col-md-3">{{ medicine.weight }} mg</div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-3"><h6>Unit Price:</h6></div>
+        <div class="col-md-3">{{ medicine.unitPrice }} tk</div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-3"><h6>Sensitivity:</h6></div>
+        <div class="col-md-3">{{ medicine.sensitivity }}</div>
+      </div>
+      <hr>
+
+      <hr>
     </div>
   </div>
 </div>

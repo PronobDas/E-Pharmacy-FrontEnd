@@ -28,9 +28,10 @@ export class SigninComponent implements OnInit {
     } else
     {
       this.invalidLogin = true
+      alert("Your 'Email' or 'Password' is incorrect. \nPlease Try again.");
       console.log("wrong pass")
-    }
 
+    }
 
   }
 }
