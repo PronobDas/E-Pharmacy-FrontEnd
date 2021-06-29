@@ -38,6 +38,7 @@ export class AuthService {
 
   logOut() {
     sessionStorage.removeItem('email')
+    sessionStorage.removeItem('name')
   }
 }
 

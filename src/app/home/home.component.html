@@ -3,4 +3,61 @@
   <span class="fa fa-search form-control-feedback"></span>
   <input  type="text" #box class="search-bar form-control" placeholder="Medicines" />
 </div>
-<button class="btn btn-outline-success btn-space my-2 my-sm-0" >Search</button>
+<button (click)="getSearchVal(box.value);getResult()" class="btn btn-outline-success btn-space my-2 my-sm-0" >Search</button>
+
+<div *ngIf='showresult' class="searchdiv bg-white">
+  <h1>Results for "{{searchVal}}"</h1>
+  <div *ngFor="let medicine of medicines">
+
+    <div class="row justify-content-center">
+      <div class="card shadow" style="width: 100%;">
+
+        <img class="poster mr-3" [src]="medicine.imageURL"  alt="...">
+
+        <div class="card-body">
+          <div class="row">
+          <hr>
+          <div class="row">
+            <div class="col-md-3"><h6>Drug name:</h6></div>
+            <div class="col-md-3">{{ medicine.name }} </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-md-3"><h6>Generic Name:</h6></div>
+            <div class="col-md-3">{{ medicine.name }}</div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-md-3"><h6>Company:</h6></div>
+            <div class="col-md-3">{{ medicine.name }}</div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-md-3"><h6>Weight:</h6></div>
+            <div class="col-md-3">{{ medicine.weight }} mg</div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-md-3"><h6>Unit Price:</h6></div>
+            <div class="col-md-3">{{ medicine.weight }} tk</div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-md-3"><h6>Sensitivity:</h6></div>
+            <div class="col-md-3">{{ medicine.sensitivity }}</div>
+          </div>
+          <hr>
+        </div>
+      </div>
+        <div class="col">
+          <button class="btn btn-success" ><i class="fas fa-user-edit"></i> Add to Cart  </button>
+    </div>
+
+
+
+
+
+
+
+  </div>
+</div>

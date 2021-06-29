@@ -29,7 +29,7 @@ export class SigninComponent implements OnInit {
     {
       this.invalidLogin = true
       alert("Your 'Email' or 'Password' is incorrect. \nPlease Try again.");
-      console.log("wrong pass")
+      console.log("wrong pass: " + this.password)
 
     }
 

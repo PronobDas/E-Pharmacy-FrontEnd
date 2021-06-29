@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import {RouterModule} from "@angular/router";
@@ -20,6 +19,7 @@ import {AuthGaurdService} from "./services/authguard.service";
 import { ProductEditComponent } from './product-edit/product-edit.component';
 import {MedicineService} from "./services/medicine.service";
 import { ProductDetailsComponent } from './product-details/product-details.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +33,8 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
     ProductFormComponent,
     LogoutComponent,
     ProductEditComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -45,6 +46,7 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
       { path: 'signup', component: SignupComponent},
       { path: 'signin', component: SigninComponent},
       { path: 'logout', component: LogoutComponent},
+      { path: 'profile', component: ProfileComponent, canActivate:[AuthGaurdService]},
       { path: 'admin/products', component: AdminProductsComponent, canActivate:[AuthGaurdService]},
       { path: 'admin/products/new', component: ProductFormComponent ,canActivate:[AuthGaurdService]},
       { path: 'admin/products/edit/:id', component: ProductEditComponent ,canActivate:[AuthGaurdService]},
