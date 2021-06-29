@@ -1,1 +1,26 @@
+
+
+<h4><i class="fas fa-capsules mr-2"></i> Medicine List</h4>
+<table class="table">
+  <thead>
+  <tr>
+    <th> Name </th>
+    <th> Company </th>
+    <th> Price </th>
+    <th>  </th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let m of medicines | async">
+    <td> {{ m.name }}</td>
+    <td> {{ m.companyName }}</td>
+    <td> {{ m.unitPrice }}</td>
+    <td>
+      <button class="btn btn-success" (click)="medicineDetails(m.id)"><i class="fas fa-user-edit"></i> Details </button>
+    </td>
+
+  </tr>
+  </tbody>
+</table>
+
 <a routerLink="/admin/products/new" class="btn btn-primary">New Product</a>
