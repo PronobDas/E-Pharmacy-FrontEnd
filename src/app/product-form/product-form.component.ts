@@ -58,7 +58,7 @@ export class ProductFormComponent implements OnInit {
   }
 
   goToList() {
-    this.router.navigate([ '', this.medicineId ]);
+    this.router.navigate([ 'admin/products' ]);
   }
 
   cancelAdd() {

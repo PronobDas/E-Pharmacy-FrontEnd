@@ -13,7 +13,7 @@ export class ProductEditComponent implements OnInit {
 
   medicine: Medicine = new Medicine();
   medicineId: string;
-  imglink : string;
+  id : string;
 
   // Build Report Form
   medicineForm = this.fb.group({
@@ -23,6 +23,7 @@ export class ProductEditComponent implements OnInit {
     weight: [ '', Validators.required ],
     unitPrice: [ '', Validators.required ],
     sensitivity: [ '', Validators.required ],
+    imageURL: [ '', Validators.required ]
   });
 
   constructor(private medicineService: MedicineService,
@@ -37,6 +38,7 @@ export class ProductEditComponent implements OnInit {
     this.medicineService.getMedicine(this.medicineId).subscribe(
       medicineData => {
         this.medicine = medicineData;
+        this.id = this.medicine.id;
         console.log(this.medicine);
         this.medicineForm.patchValue({
           name: this.medicine.name,
@@ -45,11 +47,12 @@ export class ProductEditComponent implements OnInit {
           weight: this.medicine.weight,
           unitPrice: this.medicine.unitPrice,
           sensitivity: this.medicine.sensitivity,
-          imageURL: this.medicine.imageURL,
+          imageURL: this.medicine.imageURL
         });
       }
     );
-    this.imglink = this.medicine.genericName;
+
+    console.log(this.id);
   }
 
   update() {
@@ -68,7 +71,7 @@ export class ProductEditComponent implements OnInit {
   }
 
   goToList() {
-    this.router.navigate([ 'admin/products' ]);
+    this.router.navigate([ 'admin/products/details', this.id ]);
   }
 
   cancelAdd() {
