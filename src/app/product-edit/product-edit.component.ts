@@ -43,8 +43,9 @@ export class ProductEditComponent implements OnInit {
           genericName: this.medicine.genericName,
           companyName: this.medicine.companyName,
           weight: this.medicine.weight,
-          unit: this.medicine.unitPrice,
-          sensitivity: this.medicine.sensitivity
+          unitPrice: this.medicine.unitPrice,
+          sensitivity: this.medicine.sensitivity,
+          imageURL: this.medicine.imageURL,
         });
       }
     );
