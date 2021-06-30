@@ -18,7 +18,7 @@ export class AuthService {
     this.userService.getUserEmail(email).subscribe((data: any) => {
         this.password = data.password;
         this.name = data.firstName + data.lastName;
-        console.log(this.password);
+        //console.log(this.password);
 
       });
     if (this.password === inputPassword ) {
@@ -34,7 +34,7 @@ export class AuthService {
 
   isUserLoggedIn() {
     let user = sessionStorage.getItem('email')
-    console.log(!(user === null))
+    //console.log(!(user === null))
     return !(user === null)
   }
 

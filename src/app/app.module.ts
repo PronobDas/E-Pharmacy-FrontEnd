@@ -41,21 +41,22 @@ import {AdminauthService} from "./services/adminauth.service";
     BrowserModule,
     NgbModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent, canActivate:[AuthGaurdService]},
-      { path: 'home', component: HomeComponent, canActivate:[AuthGaurdService] },
-      { path: 'welcome', component: WelcomeComponent },
-      { path: 'signup', component: SignupComponent},
-      { path: 'signin', component: SigninComponent},
-      { path: 'logout', component: LogoutComponent},
-      { path: 'profile', component: ProfileComponent, canActivate:[AuthGaurdService]},
-      { path: 'admin/products', component: AdminProductsComponent, canActivate:[AdminauthService]},
-      { path: 'admin/products/new', component: ProductFormComponent ,canActivate:[AdminauthService]},
-      { path: 'admin/products/edit/:id', component: ProductEditComponent ,canActivate:[AdminauthService]},
-      { path: 'admin/products/details/:id', component: ProductDetailsComponent ,canActivate:[AdminauthService]}
+      {path: '', component: HomeComponent, canActivate: [AuthGaurdService]},
+      {path: 'home', component: HomeComponent, canActivate: [AuthGaurdService]},
+      {path: 'welcome', component: WelcomeComponent},
+      {path: 'signup', component: SignupComponent},
+      {path: 'signin', component: SigninComponent},
+      {path: 'logout', component: LogoutComponent},
+      {path: 'profile', component: ProfileComponent, canActivate: [AuthGaurdService]},
+      {path: 'admin/products', component: AdminProductsComponent, canActivate: [AdminauthService]},
+      {path: 'admin/products/new', component: ProductFormComponent, canActivate: [AdminauthService]},
+      {path: 'admin/products/edit/:id', component: ProductEditComponent, canActivate: [AdminauthService]},
+      {path: 'admin/products/details/:id', component: ProductDetailsComponent, canActivate: [AdminauthService]}
     ]),
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
   providers: [
     AuthService,

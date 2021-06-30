@@ -13,7 +13,7 @@ export class AdminauthService implements CanActivate{
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     if (this.authService.isUserLoggedIn() && this.authService.isUserAdmin())
     {
-      console.log("admin logged")
+    //  console.log("admin logged")
       return true;
 
     }
