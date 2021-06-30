@@ -11,17 +11,17 @@
       <li class="nav-item">
         <a class="nav-link" routerLink="/home">Cart</a>
       </li>
+      <ng-container *ngIf="admin">
       <li class="nav-item">
         <a class="nav-link" routerLink="/admin/products">Medicines</a>
       </li>
-
+      </ng-container>
       <li ngbDropdown  class="nav-item dropdown">
         <a ngbDropdownToggle class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           {{user}}
         </a>
         <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item" routerLink="/profile">Profile</a>
-          <a class="dropdown-item" >Items</a>
           <a class="dropdown-item" >Logout</a>
         </div>
       </li>

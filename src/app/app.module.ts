@@ -20,6 +20,7 @@ import { ProductEditComponent } from './product-edit/product-edit.component';
 import {MedicineService} from "./services/medicine.service";
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { ProfileComponent } from './profile/profile.component';
+import {AdminauthService} from "./services/adminauth.service";
 
 @NgModule({
   declarations: [
@@ -47,10 +48,10 @@ import { ProfileComponent } from './profile/profile.component';
       { path: 'signin', component: SigninComponent},
       { path: 'logout', component: LogoutComponent},
       { path: 'profile', component: ProfileComponent, canActivate:[AuthGaurdService]},
-      { path: 'admin/products', component: AdminProductsComponent, canActivate:[AuthGaurdService]},
-      { path: 'admin/products/new', component: ProductFormComponent ,canActivate:[AuthGaurdService]},
-      { path: 'admin/products/edit/:id', component: ProductEditComponent ,canActivate:[AuthGaurdService]},
-      { path: 'admin/products/details/:id', component: ProductDetailsComponent ,canActivate:[AuthGaurdService]}
+      { path: 'admin/products', component: AdminProductsComponent, canActivate:[AdminauthService]},
+      { path: 'admin/products/new', component: ProductFormComponent ,canActivate:[AdminauthService]},
+      { path: 'admin/products/edit/:id', component: ProductEditComponent ,canActivate:[AdminauthService]},
+      { path: 'admin/products/details/:id', component: ProductDetailsComponent ,canActivate:[AdminauthService]}
     ]),
     FormsModule,
     ReactiveFormsModule,
@@ -60,7 +61,8 @@ import { ProfileComponent } from './profile/profile.component';
     AuthService,
     UserService,
     AuthGaurdService,
-    MedicineService
+    MedicineService,
+    AdminauthService
   ],
   bootstrap: [AppComponent]
 })

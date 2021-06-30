@@ -10,6 +10,7 @@ export class AuthService {
   user : User = new User();
   password : string;
   name : string;
+  isAdmin : boolean = false;
 
   constructor(private userService : UserService) { }
 
@@ -23,6 +24,7 @@ export class AuthService {
     if (this.password === inputPassword ) {
       sessionStorage.setItem('email', email)
       sessionStorage.setItem('name', this.name)
+      this.isAdmin = email === "admin";
       return true;
     } else {
       return false;
@@ -34,6 +36,10 @@ export class AuthService {
     let user = sessionStorage.getItem('email')
     console.log(!(user === null))
     return !(user === null)
+  }
+
+  isUserAdmin() {
+    return this.isAdmin;
   }
 
   logOut() {
