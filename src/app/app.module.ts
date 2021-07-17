@@ -21,6 +21,7 @@ import {MedicineService} from "./services/medicine.service";
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { ProfileComponent } from './profile/profile.component';
 import {AdminauthService} from "./services/adminauth.service";
+import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import {AdminauthService} from "./services/adminauth.service";
     LogoutComponent,
     ProductEditComponent,
     ProductDetailsComponent,
-    ProfileComponent
+    ProfileComponent,
+    ProfileEditComponent
   ],
   imports: [
     BrowserModule,
@@ -48,6 +50,7 @@ import {AdminauthService} from "./services/adminauth.service";
       {path: 'signin', component: SigninComponent},
       {path: 'logout', component: LogoutComponent},
       {path: 'profile', component: ProfileComponent, canActivate: [AuthGaurdService]},
+      {path: 'profile/edit', component: ProfileEditComponent, canActivate: [AuthGaurdService]},
       {path: 'admin/products', component: AdminProductsComponent, canActivate: [AdminauthService]},
       {path: 'admin/products/new', component: ProductFormComponent, canActivate: [AdminauthService]},
       {path: 'admin/products/edit/:id', component: ProductEditComponent, canActivate: [AdminauthService]},

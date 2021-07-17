@@ -18,6 +18,9 @@ export class UserService {
   getUserEmail(email: any): Observable<any> {
     return this.http.get(`${baseUrl}/email/${email}`);
   }
+  updateUser(id: any, data: any): Observable<any> {
+    return this.http.put(`${baseUrl}/${id}`, data);
+  }
 
   duplicateEmail (email: string) {
     this.getUserEmail(email).subscribe((data: any) => {
