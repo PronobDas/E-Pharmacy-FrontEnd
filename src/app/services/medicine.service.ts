@@ -34,6 +34,10 @@ export class MedicineService {
     return this.http.get(`${baseUrl}/name/${name}`);
   }
 
+  getMedicineByGenericName(genericName: string): Observable<any> {
+    return this.http.get(`${baseUrl}/genericName/${genericName}`);
+  }
+
   createMedicine(data: any): Observable<any> {
     return this.http.post(baseUrl, data);
   }

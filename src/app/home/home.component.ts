@@ -23,9 +23,14 @@ export class HomeComponent implements OnInit {
   getResult()
   {
     this.medSearch.getMedicineByName(this.searchVal).subscribe((data: any) => {
-      console.log(data);
+     // console.log(data);
       this.medicines = data;
-      this.showresult=true;
+      this.medSearch.getMedicineByGenericName(this.medicines[0].genericName).subscribe((data: any) => {
+        console.log(data);
+        this.medicines = data;
+        //console.log();
+        this.showresult=true;
+      });
     });
   }
 
