@@ -4,7 +4,7 @@
 <!------ Include the above in your HEAD tag ---------->
 
 <div class="container emp-profile">
-  <form method="post">
+  <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
     <div class="row">
       <div class="col-md-4">
         <div class="profile-img">
@@ -32,7 +32,8 @@
         </div>
       </div>
       <div class="col-md-2">
-        <a type="submit" class="profile-edit-btn" name="btnAddMore" class="dropdown-item" routerLink="/profile/edit"><b>Edit Profile </b></a>
+        <button type="submit" name="btnAddMore" class="btn btn-outline-primary" >Save changes</button>
+        <button type="button" class="btn btn-danger ml-2" (click)="cancelAdd()">Cancel</button>
       </div>
     </div>
     <div class="row">
@@ -57,7 +58,7 @@
                 <label>First Name</label>
               </div>
               <div class="col-md-6">
-                <p>{{user.firstName}}</p>
+                <input formControlName="firstName" type="text" class="form-control ">
               </div>
             </div>
             <div class="row">
@@ -65,23 +66,31 @@
                 <label>Last Name</label>
               </div>
               <div class="col-md-6">
-                <p>{{user.lastName}}</p>
+                <input formControlName="lastName" type="text" class="form-control ">
               </div>
             </div>
+
             <div class="row">
               <div class="col-md-6">
                 <label>Gender</label>
               </div>
-              <div class="col-md-6">
-                <p>{{user.gender}}</p>
+              <div class="col-sm-4">
+                <label class="radio-inline">
+                  <input type="radio" id="femaleRadio" formControlName="gender" value="Female" name="gender" >Female
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" id="maleRadio" formControlName="gender" value="Male" name="gender" autofocus>Male
+                </label>
               </div>
             </div>
+
+
             <div class="row">
               <div class="col-md-6">
                 <label>Location</label>
               </div>
               <div class="col-md-6">
-                <p>{{user.location}}</p>
+                <input formControlName="location" type="text" class="form-control ">
               </div>
             </div>
             <div class="row">
@@ -89,7 +98,7 @@
                 <label>Email</label>
               </div>
               <div class="col-md-6">
-                <p>{{user.email}}</p>
+                <input formControlName="email" type="text" class="form-control ">
               </div>
             </div>
             <div class="row">
@@ -97,7 +106,7 @@
                 <label>Phone</label>
               </div>
               <div class="col-md-6">
-                <p>{{user.phone}}</p>
+                <input formControlName="phone" type="text" class="form-control ">
               </div>
             </div>
 
