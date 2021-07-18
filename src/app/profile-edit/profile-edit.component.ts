@@ -13,6 +13,7 @@ export class ProfileEditComponent implements OnInit {
 
   user : User
   userID : string
+  pass : string
   constructor(private userService: UserService,
               private route: ActivatedRoute,
               private router: Router,
@@ -33,6 +34,7 @@ export class ProfileEditComponent implements OnInit {
       this.user = data;
       console.log(this.user);
       this.userID = this.user.id;
+      this.pass = this.user.password;
       this.userForm.patchValue({
         firstName: this.user.firstName,
         lastName: this.user.lastName,
@@ -47,10 +49,11 @@ export class ProfileEditComponent implements OnInit {
 
   update() {
     this.user = this.userForm.value;
+    this.user.password = this.pass;
     this.userService.updateUser(this.userID, this.user).subscribe(
       userData => {
         this.user = userData;
-       // this.userService.sendListUpdateAlert('Updated');
+        // this.userService.sendListUpdateAlert('Updated');
 
       }, error => console.log(error)
     );
