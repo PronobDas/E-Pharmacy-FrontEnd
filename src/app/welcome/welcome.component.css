@@ -63,3 +63,13 @@ h2.account-text {
     margin-right: 1%
   }
 }
+
+.logocls {
+  height: 20%;
+  width: 20%;
+
+}
+.logo{
+  width: 100%;
+  text-align: center;
+}

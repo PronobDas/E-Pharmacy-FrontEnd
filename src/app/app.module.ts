@@ -24,6 +24,7 @@ import {AdminauthService} from "./services/adminauth.service";
 import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 import { CartComponent } from './cart/cart.component';
 import {CartService} from "./services/cart.service";
+import { CheckoutComponent } from './checkout/checkout.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import {CartService} from "./services/cart.service";
     ProductDetailsComponent,
     ProfileComponent,
     ProfileEditComponent,
-    CartComponent
+    CartComponent,
+    CheckoutComponent
   ],
   imports: [
     BrowserModule,
@@ -49,6 +51,7 @@ import {CartService} from "./services/cart.service";
       {path: '', component: HomeComponent, canActivate: [AuthGaurdService]},
       {path: 'home', component: HomeComponent, canActivate: [AuthGaurdService]},
       {path: 'cart', component: CartComponent, canActivate: [AuthGaurdService]},
+      {path: 'checkout', component: CheckoutComponent, canActivate: [AuthGaurdService]},
       {path: 'welcome', component: WelcomeComponent},
       {path: 'signup', component: SignupComponent},
       {path: 'signin', component: SigninComponent},

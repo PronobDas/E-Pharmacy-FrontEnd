@@ -2,26 +2,35 @@
 <div class="form-group has-search search-bar">
   <span class="fa fa-search form-control-feedback"></span>
   <input  type="text" #box class="search-bar form-control" placeholder="Medicines" />
+
 </div>
 
 <button (click)="getSearchVal(box.value);getResult()" class="btn btn-outline-success btn-space my-2 my-sm-0" >Search</button>
+<div class="search-img">
+  <h3>OR</h3>
+  <h4>Upload a Prescription</h4>
+
+  <input type="file" name="file"/>
+</div>
 
 <div *ngIf='showresult' class="searchdiv bg-white btn-space">
   <h1>Results for "{{searchVal}}"</h1>
-  <div class="searchdiv bg-white horizontal">
-  <div *ngFor="let medicine of medicines " class="results">
-
-    <div class="card" style="width: 18rem;">
-      <img class="card-img-top" [src]="medicine.imageURL" >
-      <div class="card-body">
-        <h4 class="card-title">{{ medicine.name }}</h4>
-        <p class="card-text">Company: {{ medicine.companyName }}</p>
-        <p class="card-text">Generic Name: {{ medicine.genericName }}</p>
-        <p class="card-text">Price: {{ medicine.unitPrice | currency:'BDT':"৳" }}</p>
-        <button (click)="addToCart(medicine.name)" class="btn btn-primary" > Add to cart </button>
+  <div class="row">
+    <ng-container *ngFor="let medicine of medicines; let i = index" class="results">
+      <div class="col">
+        <div class="card" style="width: 18rem;">
+          <img class="card-img-top" [src]="medicine.imageURL" >
+          <div class="card-body">
+            <h4 class="card-title">{{ medicine.name }}</h4>
+            <p class="card-text">Company: {{ medicine.companyName }}</p>
+            <p class="card-text">Generic Name: {{ medicine.genericName }}</p>
+            <p class="card-text">Price: {{ medicine.unitPrice | currency:'BDT':"৳" }}</p>
+            <button (click)="addToCart(medicine.name)" class="btn btn-primary" > Add to cart </button>
+          </div>
+        </div>
       </div>
-    </div>
-    </div>
+      <div *ngIf="(i+1)%3 == 0" class="w-100"></div>
+    </ng-container>
 
   </div>
 </div>

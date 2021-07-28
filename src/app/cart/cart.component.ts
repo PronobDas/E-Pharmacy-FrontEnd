@@ -16,6 +16,8 @@ export class CartComponent implements OnInit {
   orderId: any;
   medicines : any ;
   order: Order;
+  cartEmpty : boolean;
+  username = sessionStorage.getItem('name')
 
   constructor(private route: ActivatedRoute,
               private router: Router,
@@ -29,6 +31,7 @@ export class CartComponent implements OnInit {
         this.cartService.getCart(this.orderId).subscribe(
           Data => {
             this.order = Data;
+            this.cartEmpty = true
             this.medicines = this.order.medicines
             console.log(this.medicines)
             console.log(this.order)
@@ -37,18 +40,12 @@ export class CartComponent implements OnInit {
 
   }
 
-  deleteMedicine(id: string) {
-    this.medicineService.deleteMedicine(id).subscribe(
-      data => {
-        this.medicineService.sendListUpdateAlert('Deleted');
-      },
-      error => console.log(error)
-    );
-    this.router.navigate([ 'admin/products' ]);
+  clearCart()
+  {
+    localStorage.removeItem('cartId')
+    this.cartEmpty = false
   }
 
-  updateMedicine(id: string) {
-    this.router.navigate([ 'admin/products/edit', id ]);
-  }
+
 
 }

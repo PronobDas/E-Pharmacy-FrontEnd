@@ -1,5 +1,15 @@
 .nav {
   padding: 20px;
-  font-size: 25px;
+  font-size: 30px;
   word-spacing: 20px;
+}
+
+
+.logocls {
+  height: 30%;
+  width: 30%;
+
+}
+.logo{
+  text-align: center;
 }

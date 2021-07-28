@@ -4,6 +4,8 @@ import {Order} from "../models/Order";
 import {CartService} from "../services/cart.service";
 import {Medicine} from "../models/Medicine";
 import { CommonModule } from '@angular/common';
+import {UserService} from "../services/user.service";
+import {User} from "../models/User";
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -12,15 +14,23 @@ import { CommonModule } from '@angular/common';
 export class HomeComponent implements OnInit {
 
   order = new Order();
+  user = new User();
   cartId: string;
   searchVal = "";
   showresult : boolean = false;
   medicines : any ;
   constructor(private medSearch: MedicineService,
-              private cartService: CartService)
+              private cartService: CartService,
+              private userService: UserService)
   { }
 
   ngOnInit(): void {
+    let email = (sessionStorage.getItem('email'))
+    //  console.log(email)
+    this.userService.getUserEmail(email).subscribe((data: any) => {
+      this.user = data
+      //  console.log(this.user)
+    });
   }
   getSearchVal(val: string)
   {
@@ -30,10 +40,10 @@ export class HomeComponent implements OnInit {
   getResult()
   {
     this.medSearch.getMedicineByName(this.searchVal).subscribe((data: any) => {
-     console.log(data);
+    // console.log(data);
       this.medicines = data;
       this.medSearch.getMedicineByGenericName(this.medicines[0].genericName).subscribe((data: any) => {
-        console.log(data);
+      //  console.log(data);
         this.medicines = data;
         //console.log();
         this.showresult=true;
@@ -56,6 +66,7 @@ getQuantity()
   addToCart(medicineName : string){
     let medicineToAdd = new Medicine()
 
+
    //   medicineToAdd = this.getMedObj(medicineName)
 
       let cartId = localStorage.getItem('cartId')
@@ -63,7 +74,7 @@ getQuantity()
         this.medSearch.getMedicineByName(medicineName).subscribe((data:any) => {
           medicineToAdd = data[0];
 
-          console.log(medicineToAdd)
+      //    console.log(medicineToAdd)
           this.cartService.addMedicineToCart(cartId, medicineToAdd, 1).subscribe(
             data => {
               this.order = data;
@@ -73,13 +84,17 @@ getQuantity()
 
 
       } else {
+
         this.medSearch.getMedicineByName(medicineName).subscribe((data:any) => {
           medicineToAdd = data[0];
 
-          console.log(medicineToAdd)
+      //    console.log(medicineToAdd)
         });
-        this.order.location = 'hoga'
-        this.order.phone = '12121212121'
+
+      //  console.log(this.user)
+        this.order.userId = this.user.id
+        this.order.location = this.user.location
+        this.order.phone = this.user.phone
         this.order.medicines = this.order.medicines || []
         this.order.units = this.order.units || []
         this.cartService.create(this.order).subscribe(

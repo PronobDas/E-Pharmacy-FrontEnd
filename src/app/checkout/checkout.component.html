@@ -1,36 +1,26 @@
-<div *ngIf="cartEmpty">
 <div class="searchdiv bg-white btn-space">
-  <h1>Cart </h1>
+  <h1>Your Order </h1>
   <div>
     <h4 class="card-title">Order ID: {{ order.id }}</h4>
     <p class="card-text">Username: {{ username }}</p>
     <p class="card-text">Phone: {{ order.phone }}</p>
     <p class="card-text">Location: {{ order.location }}</p>
-    <p class="card-text">Total Price: {{ order.totalPrice | currency:'BDT':"৳" }}</p>
-    <a  class="btn btn-primary" routerLink="/checkout" > Proceed to Checkout </a>
 
   </div>
-  <button (click)="clearCart()" routerLink="/cart"  class="btn btn-danger" > Clear Cart </button>
 
   <div class="row" >
-    <h2> My Medicines</h2>
+    <h2> Ordered Medicines</h2>
     <ng-container *ngFor="let medicine of medicines; let i = index" class="results">
       <div class="col">
         <div class="card" style="width: 18rem;">
-          <img class=" card-img-top imgsize" [src]="medicine.imageURL" >
           <div class="card-body">
             <h4 class="card-title">{{ medicine.name }}</h4>
-            <p class="card-text">Price: {{ medicine.unitPrice | currency:'BDT':"৳" }}</p>
           </div>
         </div>
       </div>
       <div *ngIf="(i + 1)%3 == 0" class="w-100"></div>
     </ng-container>
   </div>
-
-</div>
-</div>
-<div *ngIf="!cartEmpty" class="searchdiv bg-white btn-space">
-  <h1>Your Cart is Empty</h1>
-  <a  class="btn btn-primary" routerLink="/home" > Back to Home </a>
+  <p class="card-text">Total Price: {{ order.totalPrice | currency:'BDT':"৳" }}</p>
+  <a  class="btn btn-primary" (click)="clearCart()" routerLink="/home" > Back to Home </a>
 </div>
