@@ -19,5 +19,8 @@ export class CartService {
   getCart(id: any): Observable<any> {
     return this.http.get(`${baseUrl}/${id}`);
   }
+  getCartByUser(id: any): Observable<any> {
+  return this.http.get(`${baseUrl}/user/${id}`);
+}
 
 }
