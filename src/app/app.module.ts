@@ -22,6 +22,8 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import { ProfileComponent } from './profile/profile.component';
 import {AdminauthService} from "./services/adminauth.service";
 import { ProfileEditComponent } from './profile-edit/profile-edit.component';
+import { CartComponent } from './cart/cart.component';
+import {CartService} from "./services/cart.service";
 
 @NgModule({
   declarations: [
@@ -37,7 +39,8 @@ import { ProfileEditComponent } from './profile-edit/profile-edit.component';
     ProductEditComponent,
     ProductDetailsComponent,
     ProfileComponent,
-    ProfileEditComponent
+    ProfileEditComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
@@ -66,7 +69,8 @@ import { ProfileEditComponent } from './profile-edit/profile-edit.component';
     UserService,
     AuthGaurdService,
     MedicineService,
-    AdminauthService
+    AdminauthService,
+    CartService
   ],
   bootstrap: [AppComponent]
 })

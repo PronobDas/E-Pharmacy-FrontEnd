@@ -18,7 +18,7 @@
         <p class="card-text">Company: {{ medicine.companyName }}</p>
         <p class="card-text">Generic Name: {{ medicine.genericName }}</p>
         <p class="card-text">Price: {{ medicine.unitPrice | currency:'BDT':"৳" }}</p>
-        <a href="#" class="btn btn-primary">Add to cart</a>
+        <button (click)="addToCart(medicine.name)" class="btn btn-primary" > Add to cart </button>
       </div>
     </div>
     </div>
