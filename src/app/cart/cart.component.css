@@ -1,0 +1,46 @@
+.poster {
+  width:200px;
+  height: 300px;
+
+}
+
+.search-bar{
+  width: 500px;
+  padding: 15px;
+  margin-bottom: 1rem;
+  margin-top: 2rem;
+  margin-left: 100px;
+}
+.btn-space{
+  margin-left: 220px;
+}
+.has-search .form-control {
+  padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+  position: absolute;
+  z-index: 2;
+  display: block;
+  width: 2.375rem;
+  height: 2.375rem;
+  line-height: 2.375rem;
+  text-align: center;
+  pointer-events: none;
+  color: #aaa;
+}
+
+.poster {
+  width:200px;
+  height: 300px;
+
+}
+
+.horizontal {
+  display: flex;
+
+}
+.results {
+  margin-left:100px;
+  margin-top: 100px;
+}

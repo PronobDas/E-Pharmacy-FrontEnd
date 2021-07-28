@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import {Medicine} from "../models/Medicine";
+import {ActivatedRoute, Params, Router} from "@angular/router";
+import {MedicineService} from "../services/medicine.service";
+import {Order} from "../models/Order";
+import {CartService} from "../services/cart.service";
 
 @Component({
   selector: 'app-cart',
@@ -7,9 +12,43 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CartComponent implements OnInit {
 
-  constructor() { }
+  medicineId: string;
+  orderId: any;
+  medicines : any ;
+  order: Order;
 
+  constructor(private route: ActivatedRoute,
+              private router: Router,
+              private medicineService: MedicineService,
+              private cartService: CartService) {
+  }
   ngOnInit(): void {
+    this.order = new Order();
+        this.orderId = localStorage.getItem('cartId');
+        console.log(this.orderId)
+        this.cartService.getCart(this.orderId).subscribe(
+          Data => {
+            this.order = Data;
+            this.medicines = this.order.medicines
+            console.log(this.medicines)
+            console.log(this.order)
+          }
+        );
+
+  }
+
+  deleteMedicine(id: string) {
+    this.medicineService.deleteMedicine(id).subscribe(
+      data => {
+        this.medicineService.sendListUpdateAlert('Deleted');
+      },
+      error => console.log(error)
+    );
+    this.router.navigate([ 'admin/products' ]);
+  }
+
+  updateMedicine(id: string) {
+    this.router.navigate([ 'admin/products/edit', id ]);
   }
 
 }

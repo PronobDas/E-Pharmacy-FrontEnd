@@ -9,7 +9,7 @@
 <div *ngIf='showresult' class="searchdiv bg-white btn-space">
   <h1>Results for "{{searchVal}}"</h1>
   <div class="searchdiv bg-white horizontal">
-  <div *ngFor="let medicine of medicines" class="results">
+  <div *ngFor="let medicine of medicines " class="results">
 
     <div class="card" style="width: 18rem;">
       <img class="card-img-top" [src]="medicine.imageURL" >
@@ -22,9 +22,6 @@
       </div>
     </div>
     </div>
-
-
-
 
   </div>
 </div>

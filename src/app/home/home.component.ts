@@ -3,9 +3,7 @@ import {MedicineService} from "../services/medicine.service";
 import {Order} from "../models/Order";
 import {CartService} from "../services/cart.service";
 import {Medicine} from "../models/Medicine";
-import {async, waitForAsync} from "@angular/core/testing";
-
-
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -43,6 +41,18 @@ export class HomeComponent implements OnInit {
     });
   }
 
+getQuantity()
+{
+
+  let temp = new Order()
+  let cartId = localStorage.getItem('cartId')
+  this.cartService.getCart(cartId).subscribe((data:any) => {
+    temp = data;
+
+  });
+  console.log(temp.totalPrice)
+  return this.order.totalPrice
+}
   addToCart(medicineName : string){
     let medicineToAdd = new Medicine()
 

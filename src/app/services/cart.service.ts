@@ -16,4 +16,8 @@ export class CartService {
     return this.http.put(`${baseUrl}/${orderId}/medicine/${unit}`,data);
   }
 
+  getCart(id: any): Observable<any> {
+    return this.http.get(`${baseUrl}/${id}`);
+  }
+
 }

@@ -1,1 +1,29 @@
-<p>cart works!</p>
+<div class="searchdiv bg-white btn-space">
+  <h1>Cart </h1>
+  <div class="searchdiv bg-white horizontal">
+
+    <div >
+
+        <h4 class="card-title">Order ID: {{ order.id }}</h4>
+        <p class="card-text">Phone: {{ order.phone }}</p>
+        <p class="card-text">Location: {{ order.location }}</p>
+        <p class="card-text">Total Price: {{ order.totalPrice | currency:'BDT':"৳" }}</p>
+        <button  class="btn btn-primary" > Proceed to Checkout </button>
+
+    </div>
+    <div *ngFor="let medicine of medicines" class="results">
+
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" [src]="medicine.imageURL" >
+        <div class="card-body">
+          <h4 class="card-title">{{ medicine.name }}</h4>
+          <p class="card-text">Company: {{ medicine.companyName }}</p>
+          <p class="card-text">Generic Name: {{ medicine.genericName }}</p>
+          <p class="card-text">Price: {{ medicine.unitPrice | currency:'BDT':"৳" }}</p>
+          <button  class="btn btn-primary" > Proceed to Checkout </button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

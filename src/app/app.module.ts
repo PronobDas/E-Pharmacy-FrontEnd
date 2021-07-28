@@ -48,6 +48,7 @@ import {CartService} from "./services/cart.service";
     RouterModule.forRoot([
       {path: '', component: HomeComponent, canActivate: [AuthGaurdService]},
       {path: 'home', component: HomeComponent, canActivate: [AuthGaurdService]},
+      {path: 'cart', component: CartComponent, canActivate: [AuthGaurdService]},
       {path: 'welcome', component: WelcomeComponent},
       {path: 'signup', component: SignupComponent},
       {path: 'signin', component: SigninComponent},
